@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block title %}
+    <title>form</title>
+{% endblock %}
+
+{% block content %}
+
+<h1 style="font-size: 50px ; text-align: center">แบบฟอร์มบันทึกข้อมูล</h1>
+    <form method="post" action="/form/">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label">ชื่อ</label>
+          <div class="control">
+            <input class="input" type="text" name="name" placeholder="กรอกชื่อ">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">อายุ</label>
+          <div class="control">
+            <input class="input" type="number" name="age" placeholder="กรอกอายุ">
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary">บันทึก</button>
+          </div>
+        </div>
+      </form>
+{% endblock %}

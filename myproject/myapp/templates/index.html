@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block title %}
+    <title>หน้าแรกของเว็บไซต์</title>
+{% endblock %}
+
+{% block content %}
+   <h1 style="color: aqua; font-size: 30px; text-align: center;" >ข้อมูลพนักงาน</h1>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification is-link">
+            {{message}}</div>
+        {% endfor %}
+    {% endif %}
+
+   <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>รหัสพนักงาน</th>
+        <th>ชื่อ</th>
+        <th>อายุ</th>
+        <th>วันที่บันทึก</th>
+        <th>ลบ</th>
+        <th>แก้ไข</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for Person in all_Person %}
+      <tr>
+        <td align="center">{{Person.id}}</td>
+        <td align="center">{{Person.name}} </td>
+        <td align="center">{{Person.age}}</td>
+        <td align="center">{{Person.date}}</td>
+        <td ><a href="delete/{{Person.id}}" class="button is-danger"
+            onclick="return confirm('คุณต้องการลบ {{Person.name}} หรือไม่')">ลบ</a></td>
+        <td><a href="edit/{{Person.id}}" class="button is-warning">แก้ไข</a></td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

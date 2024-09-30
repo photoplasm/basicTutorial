@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+{% block title %}
+    <title>about </title>
+{% endblock %}
+
+{% block content %}
+    <h1>about</h1>
+    {%  for fruits in fruit_key  %}
+        <li>{{fruits}}</li>
+    {% endfor %}
+{% endblock %}
